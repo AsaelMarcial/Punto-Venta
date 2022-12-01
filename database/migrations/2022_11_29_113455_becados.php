@@ -16,7 +16,7 @@ return new class extends Migration
         
         Schema::create('becados', function (Blueprint $table) {
             $table->id();
-            $table->int('idUsuario');
+            $table->integer('idUsuario');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('carrera');

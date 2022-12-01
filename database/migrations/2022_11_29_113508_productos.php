@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->id();
                 $table->string('nombre');
                 $table->string('descripcion');
-                $table->int('stock');
+                $table->integer('stock');
                 $table->float('precioCompra');
                 $table->float('precioVenta');
                 $table->float('precioPreferencial');

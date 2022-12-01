@@ -16,8 +16,8 @@ return new class extends Migration
             
             Schema::create('ventas', function (Blueprint $table) {
                 $table->id();
-                $table->int('idUsuario');
-                $table->int('idBecado');
+                $table->integer('idUsuario');
+                $table->integer('idBecado');
                 $table->date('fecha');
                 $table->string('productos');
                 $table->string('nota');

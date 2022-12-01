@@ -16,7 +16,7 @@ return new class extends Migration
 
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->int('idProveedor');
+            $table->integer('idProveedor');
             $table->date('fecha');
             $table->string('descripcion');
             $table->float('total');
