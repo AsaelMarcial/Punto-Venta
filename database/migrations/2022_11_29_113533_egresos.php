@@ -14,16 +14,23 @@ return new class extends Migration
     public function up()
     {
 
-        Schema::create('compras', function (Blueprint $table) {
+        Schema::create('egresos', function (Blueprint $table) {
             $table->id();
-            $table->integer('idProveedor');
+            $table->unsignedBigInteger('idProveedor')->nullable();
             $table->date('fecha');
             $table->string('descripcion');
             $table->float('total');
             $table->string('factura');
             $table->string('partida');
             $table->timestamps();
+
+            $table->foreign('idProveedor')
+            ->references('id')
+            ->on('proveedores')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
+
         
     }
 
@@ -34,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compras');
+        Schema::dropIfExists('egresos');
     }
 };
