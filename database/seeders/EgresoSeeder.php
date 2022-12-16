@@ -14,13 +14,38 @@ class EgresoSeeder extends Seeder
      */
     public function run()
     {
-        $egreso = Egreso::create([
-            'idProveedor' => '1',
+
+        $data = [
+            [
+                'idProveedor' => '1',
                 'fecha' => '2021-10-20 00:00:00',
                 'descripcion' => 'Compra 1',
-                'total' => '1000.00',
+                'total' => '2000.00',
                 'factura' => 'Factura 1',
                 'partida' => 'Partida 1',
-        ]);
+                'created_at' => '2021-10-20 00:00:00',
+                'updated_at' => '2021-10-20 00:00:00',
+            ],
+            ['idProveedor' => '1',
+                'fecha' => '2021-10-20 00:00:00',
+                'descripcion' => 'Compra 2',
+                'total' => '2000.00',
+                'factura' => 'Factura 2',
+                'partida' => 'Partida 2',
+                'created_at' => '2021-10-20 00:00:00',
+                'updated_at' => '2021-10-20 00:00:00',
+            ],
+            ['idProveedor' => '1',
+                'fecha' => '2021-10-20 00:00:00',
+                'descripcion' => 'Compra 3',
+                'total' => '2000.00',
+                'factura' => 'Factura 3',
+                'partida' => 'Partida 4',
+                'created_at' => '2021-10-20 00:00:00',
+                'updated_at' => '2021-10-20 00:00:00',
+            ]];
+
+        Egreso::insert($data);
+                
     }
 }

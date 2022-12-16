@@ -23,4 +23,9 @@ class EgresoController extends Controller
         return view('egresos.index',compact('egresos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function create()
+    {
+        return view('egresos.create');
+    }
 }
