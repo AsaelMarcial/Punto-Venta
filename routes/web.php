@@ -5,6 +5,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EgresoController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('egresos', EgresoController::class);
+	Route::resource('menu', MenuController::class);
 });
