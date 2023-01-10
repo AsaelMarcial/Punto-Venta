@@ -17,7 +17,7 @@
 		<div class="d-flex flex-wrap">
 			@foreach ($data as $key => $product)
 			{{-- Menu item --}}
-			<div class="d-flex flex-column m-1 bg-light rounded" style="width: 180px; height: 230px; overflow:hidden;" >
+			<div id="{{$product->id}}"" class="d-flex flex-column m-1 bg-light rounded" style="width: 180px; height: 230px; overflow:hidden;" >
 				{{-- Menu item picture --}}
 				<img src="/image/empanadas.jpeg" style="height: 145px; object-fit:cover;">
 				{{-- Menu item content --}}
@@ -27,13 +27,13 @@
 					
 					{{-- Stepper --}}
 					<div class="d-flex flex-row justify-content-center ">
-						<div class="d-flex flex-row align-items-center text-white text-center justify-content-center rounded-circle bg-black" style="width: 28px; height:28px">
+						<div class="d-flex flex-row align-items-center text-white text-center justify-content-center rounded-circle bg-black" style="width: 28px; height:28px" onclick="substract({{$product->id}})" >
 							<p style="margin: 0">-</p>
 						</div>
 						<div class="d-flex flex-row align-items-center text-center justify-content-center rounded-circle" style="width: 28px; height:28px">
-							<p style="margin: 0">0</p>
+							<p id="product-{{$product->id}}-count" style="margin: 0">0</p>
 						</div>
-						<div class="d-flex flex-row align-items-center text-white text-center justify-content-center rounded-circle bg-black" style="width: 28px; height:28px">
+						<div class="d-flex flex-row align-items-center text-white text-center justify-content-center rounded-circle bg-black" style="width: 28px; height:28px" onclick="add({{$product->id}})">
 							<p style="margin: 0">+</p>
 						</div>
 					</div>
@@ -109,4 +109,19 @@
 		</div>
 	</div>
 </div>
+<script>
+	function add(id) {
+		let countElement = document.getElementById(`product-${id}-count`)
+		let count = countElement.innerHTML
+		count++
+		countElement.innerHTML = count
+	}
+
+	function substract(id) {
+		let countElement = document.getElementById(`product-${id}-count`)
+		let count = countElement.innerHTML
+		count--
+		countElement.innerHTML = count>=0 ? count : 0
+	}
+</script>
 @endsection
